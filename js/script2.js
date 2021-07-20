@@ -38,13 +38,39 @@ var students = [
 
 var displayProfile = document.getElementById("student-profile");
 
-for (var i = 0; i < students.length; i++) {
+printArray(students, displayProfile);
 
-    // creo una variabile per prendere i singoli oggetti:
-    var singleStudent = students[i];
 
-    // stampo solo nome e cognome:
-    displayProfile.innerHTML += singleStudent.name + " " + singleStudent.surname + "</br>";
+// Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
 
+var newName = prompt("Inserisci il nome");
+var newSurname = prompt("Inserisci il cognome");
+var newAge = prompt("Inserisci l'età");
+
+var newStudent = {
+    name: newName,
+    surname: newSurname,
+    age: newAge
+};
+
+students.push(newStudent);
+
+printArray(students, displayProfile);
+
+
+// funzione per stampare:
+
+function printArray(objectArray, targetElement) {
+    var content = "";
+
+    for (var i = 0; i < objectArray.length; i++) {
+
+        // creo una variabile per prendere i singoli oggetti:
+        var singleStudent = objectArray[i];
+
+        // inserisco ogni nome e cognome in variabile:
+        content += singleStudent.name + " " + singleStudent.surname + "</br>";
+    }
+
+    targetElement.innerHTML = content;
 }
-
