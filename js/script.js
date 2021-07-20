@@ -10,7 +10,7 @@ Stampare a schermo (in pagina) attraverso un ciclo for-in tutte le proprietà de
 var student = {
     name: "Cristina",
     surname: "Corrado",
-    age: "27"
+    age: 27
 }
 
 //check object:
@@ -22,7 +22,11 @@ var student = {
 
 var displayProfile = document.getElementById("student-profile");
 
+var content = "";
 
 for (var key in student) {
-    displayProfile.innerHTML += (student[key] + "</br>")
+
+    content += (student[key] + "</br>")
 };
+
+displayProfile.innerHTML = content;
